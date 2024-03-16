@@ -26,13 +26,13 @@ const corsOpts = {
   allowedHeaders: ["Content-Type"],
   exposedHeaders: ["Content-Type"],
 };
-app.use(cors(corsOpts));
 
 
 // end
 
 const app = express();
 const path = require('path');
+app.use(cors(corsOpts));
 
 // app.use(cors());
 app.use(bodyParser.json());
