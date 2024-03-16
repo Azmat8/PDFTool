@@ -18,10 +18,23 @@ const pdfToTxt = require('./routes/pdf-to-txt')
 const wordToPdf = require('./routes/word-to-pdf')
 const cors = require('cors');
 
+// start
+const corsOpts = {
+  origin: "*",
+  credentials: true,
+  methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type"],
+  exposedHeaders: ["Content-Type"],
+};
+app.use(cors(corsOpts));
+
+
+// end
+
 const app = express();
 const path = require('path');
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
