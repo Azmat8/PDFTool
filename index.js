@@ -18,20 +18,16 @@ const pdfToTxt = require('./routes/pdf-to-txt')
 const wordToPdf = require('./routes/word-to-pdf')
 const cors = require('cors');
 
+const app = express();
+const path = require('path');
+
 // start
 const corsOpts = {
   origin: "*",
-  credentials: true,
-  methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Content-Type"],
-  exposedHeaders: ["Content-Type"],
 };
 
 
 // end
-
-const app = express();
-const path = require('path');
 app.use(cors(corsOpts));
 
 // app.use(cors());
@@ -59,6 +55,6 @@ app.use(pdfToTxt);
 app.use(wordToPdf)
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(8080, () => {
-  console.log('Server is running on port 8080');
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
 });
